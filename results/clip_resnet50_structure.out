@@ -1,0 +1,607 @@
+[36mINFO[0m 10/16 18:52:05 | Command :: train_all.py exp_name --dataset VLCS --data_dir /home/home_node7/wzb/data_need --algorithm ERM_select --model clip_resnet50 --lr 1e-5 --resnet_dropout 0.0 --weight_decay 0 --batch_size 32 --freeze_bn False --set_count 10 --selection_rate 0.3 --recompute_count 0 --select_name 3.w
+Environment:
+	Python: 3.8.17
+	PyTorch: 2.0.1
+	Torchvision: 0.15.2
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.22.0
+	PIL: 9.4.0
+Args:
+	algorithm: ERM_select
+	checkpoint_freq: None
+	configs: []
+	data_dir: /home/home_node7/wzb/data_need
+	dataset: VLCS
+	debug: False
+	deterministic: True
+	evalmode: fast
+	holdout_fraction: 0.2
+	model_save: None
+	name: exp_name
+	out_dir: train_output/VLCS/241016_18-52-05_exp_name
+	out_root: train_output/VLCS
+	prebuild_loader: False
+	seed: 0
+	show: False
+	steps: None
+	tb_freq: 10
+	test_envs: None
+	trial_seed: 0
+	unique_name: 241016_18-52-05_exp_name
+	work_dir: .
+HParams:
+	data_augmentation: True
+	val_augment: False
+	resnet18: False
+	[36mresnet_dropout: 0.0
+	[0mclass_balanced: False
+	optimizer: adam
+	[36mfreeze_bn: False
+	[0mpretrained: True
+	[36mlr: 1e-05
+	[0m[36mbatch_size: 32
+	[0m[36mweight_decay: 0
+	[0m[36mset_count: 10
+	[0m[36mselection_rate: 0.3
+	[0mper: 0
+	[36mrecompute_count: 0
+	[0m[36mselect_name: 3.w
+	[0mk: 0
+	select: SPU3
+	swa_start: 0
+	swa_freq: 0
+	swad: False
+	swad_kwargs: 
+	  n_converge: 3
+	  n_tolerance: 6
+	  tolerance_ratio: 0.3
+	test_batchsize: 128
+	[36mmodel: clip_resnet50
+	[0mfeat_layers: stem_block
+	ld: 0.1
+	lr_mult: 10.0
+Dataset:
+	[VLCS] #envs=4, #classes=5
+	env0: Caltech101 (#1415)
+	env1: LabelMe (#2656)
+	env2: SUN09 (#3282)
+	env3: VOC2007 (#3376)
+
+[36mINFO[0m 10/16 18:52:05 | n_steps = 5001
+[36mINFO[0m 10/16 18:52:05 | checkpoint_freq = 200
+[36mINFO[0m 10/16 18:52:05 | n_steps is updated to 5001 => 5001 for checkpointing
+[36mINFO[0m 10/16 18:52:05 | Target test envs = [[0], [1], [2], [3]]
+[36mINFO[0m 10/16 18:52:05 | 
+[36mINFO[0m 10/16 18:52:05 | Testenv name escaping te_Caltech101 -> te_Caltech101
+[36mINFO[0m 10/16 18:52:05 | Test envs = [0], name = te_Caltech101
+[36mINFO[0m 10/16 18:52:05 | Batch sizes for each domain: [0, 32, 32, 32] (total=96)
+[36mINFO[0m 10/16 18:52:05 | steps-per-epoch for each domain: 66.41, 82.06, 84.41 -> min = 66.41
+[36mINFO[0m 10/16 18:52:11 | # of params = 38322021
+[36mINFO[0m 10/16 18:52:55 | test_in     test_out    train_in    train_out   tr_outloss  env0_in     env0_out    env1_out    env2_out    env3_out    step        epoch       loss        step_time   eval_time  
+[36mINFO[0m 10/16 18:52:55 | 0.206714    0.212014    0.000000    0.241582    1.603518    0.206714    0.212014    0.193974    0.277439    0.253333    0           0.000000    0.000000    0.057624    43.944880  
+Compute importance for the current task...
+network.conv1.weight
+network.bn1.weight
+network.bn1.bias
+network.conv2.weight
+network.bn2.weight
+network.bn2.bias
+network.conv3.weight
+network.bn3.weight
+network.bn3.bias
+network.layer1.0.conv1.weight
+network.layer1.0.bn1.weight
+network.layer1.0.bn1.bias
+network.layer1.0.conv2.weight
+network.layer1.0.bn2.weight
+network.layer1.0.bn2.bias
+network.layer1.0.conv3.weight
+network.layer1.0.bn3.weight
+network.layer1.0.bn3.bias
+network.layer1.0.downsample.0.weight
+network.layer1.0.downsample.1.weight
+network.layer1.0.downsample.1.bias
+network.layer1.1.conv1.weight
+network.layer1.1.bn1.weight
+network.layer1.1.bn1.bias
+network.layer1.1.conv2.weight
+network.layer1.1.bn2.weight
+network.layer1.1.bn2.bias
+network.layer1.1.conv3.weight
+network.layer1.1.bn3.weight
+network.layer1.1.bn3.bias
+network.layer1.2.conv1.weight
+network.layer1.2.bn1.weight
+network.layer1.2.bn1.bias
+network.layer1.2.conv2.weight
+network.layer1.2.bn2.weight
+network.layer1.2.bn2.bias
+network.layer1.2.conv3.weight
+network.layer1.2.bn3.weight
+network.layer1.2.bn3.bias
+network.layer2.0.conv1.weight
+network.layer2.0.bn1.weight
+network.layer2.0.bn1.bias
+network.layer2.0.conv2.weight
+network.layer2.0.bn2.weight
+network.layer2.0.bn2.bias
+network.layer2.0.conv3.weight
+network.layer2.0.bn3.weight
+network.layer2.0.bn3.bias
+network.layer2.0.downsample.0.weight
+network.layer2.0.downsample.1.weight
+network.layer2.0.downsample.1.bias
+network.layer2.1.conv1.weight
+network.layer2.1.bn1.weight
+network.layer2.1.bn1.bias
+network.layer2.1.conv2.weight
+network.layer2.1.bn2.weight
+network.layer2.1.bn2.bias
+network.layer2.1.conv3.weight
+network.layer2.1.bn3.weight
+network.layer2.1.bn3.bias
+network.layer2.2.conv1.weight
+network.layer2.2.bn1.weight
+network.layer2.2.bn1.bias
+network.layer2.2.conv2.weight
+network.layer2.2.bn2.weight
+network.layer2.2.bn2.bias
+network.layer2.2.conv3.weight
+network.layer2.2.bn3.weight
+network.layer2.2.bn3.bias
+network.layer2.3.conv1.weight
+network.layer2.3.bn1.weight
+network.layer2.3.bn1.bias
+network.layer2.3.conv2.weight
+network.layer2.3.bn2.weight
+network.layer2.3.bn2.bias
+network.layer2.3.conv3.weight
+network.layer2.3.bn3.weight
+network.layer2.3.bn3.bias
+network.layer3.0.conv1.weight
+network.layer3.0.bn1.weight
+network.layer3.0.bn1.bias
+network.layer3.0.conv2.weight
+network.layer3.0.bn2.weight
+network.layer3.0.bn2.bias
+network.layer3.0.conv3.weight
+network.layer3.0.bn3.weight
+network.layer3.0.bn3.bias
+network.layer3.0.downsample.0.weight
+network.layer3.0.downsample.1.weight
+network.layer3.0.downsample.1.bias
+network.layer3.1.conv1.weight
+network.layer3.1.bn1.weight
+network.layer3.1.bn1.bias
+network.layer3.1.conv2.weight
+network.layer3.1.bn2.weight
+network.layer3.1.bn2.bias
+network.layer3.1.conv3.weight
+network.layer3.1.bn3.weight
+network.layer3.1.bn3.bias
+network.layer3.2.conv1.weight
+network.layer3.2.bn1.weight
+network.layer3.2.bn1.bias
+network.layer3.2.conv2.weight
+network.layer3.2.bn2.weight
+network.layer3.2.bn2.bias
+network.layer3.2.conv3.weight
+network.layer3.2.bn3.weight
+network.layer3.2.bn3.bias
+network.layer3.3.conv1.weight
+network.layer3.3.bn1.weight
+network.layer3.3.bn1.bias
+network.layer3.3.conv2.weight
+network.layer3.3.bn2.weight
+network.layer3.3.bn2.bias
+network.layer3.3.conv3.weight
+network.layer3.3.bn3.weight
+network.layer3.3.bn3.bias
+network.layer3.4.conv1.weight
+network.layer3.4.bn1.weight
+network.layer3.4.bn1.bias
+network.layer3.4.conv2.weight
+network.layer3.4.bn2.weight
+network.layer3.4.bn2.bias
+network.layer3.4.conv3.weight
+network.layer3.4.bn3.weight
+network.layer3.4.bn3.bias
+network.layer3.5.conv1.weight
+network.layer3.5.bn1.weight
+network.layer3.5.bn1.bias
+network.layer3.5.conv2.weight
+network.layer3.5.bn2.weight
+network.layer3.5.bn2.bias
+network.layer3.5.conv3.weight
+network.layer3.5.bn3.weight
+network.layer3.5.bn3.bias
+network.layer4.0.conv1.weight
+network.layer4.0.bn1.weight
+network.layer4.0.bn1.bias
+network.layer4.0.conv2.weight
+network.layer4.0.bn2.weight
+network.layer4.0.bn2.bias
+network.layer4.0.conv3.weight
+network.layer4.0.bn3.weight
+network.layer4.0.bn3.bias
+network.layer4.0.downsample.0.weight
+network.layer4.0.downsample.1.weight
+network.layer4.0.downsample.1.bias
+network.layer4.1.conv1.weight
+network.layer4.1.bn1.weight
+network.layer4.1.bn1.bias
+network.layer4.1.conv2.weight
+network.layer4.1.bn2.weight
+network.layer4.1.bn2.bias
+network.layer4.1.conv3.weight
+network.layer4.1.bn3.weight
+network.layer4.1.bn3.bias
+network.layer4.2.conv1.weight
+network.layer4.2.bn1.weight
+network.layer4.2.bn1.bias
+network.layer4.2.conv2.weight
+network.layer4.2.bn2.weight
+network.layer4.2.bn2.bias
+network.layer4.2.conv3.weight
+network.layer4.2.bn3.weight
+network.layer4.2.bn3.bias
+network.attnpool.positional_embedding
+network.attnpool.k_proj.weight
+network.attnpool.k_proj.bias
+network.attnpool.q_proj.weight
+network.attnpool.q_proj.bias
+network.attnpool.v_proj.weight
+network.attnpool.v_proj.bias
+network.attnpool.c_proj.weight
+network.attnpool.c_proj.bias
+network.conv1.weight
+network.bn1.weight
+network.bn1.bias
+network.conv2.weight
+network.bn2.weight
+network.bn2.bias
+network.conv3.weight
+network.bn3.weight
+network.bn3.bias
+network.layer1.0.conv1.weight
+network.layer1.0.bn1.weight
+network.layer1.0.bn1.bias
+network.layer1.0.conv2.weight
+network.layer1.0.bn2.weight
+network.layer1.0.bn2.bias
+network.layer1.0.conv3.weight
+network.layer1.0.bn3.weight
+network.layer1.0.bn3.bias
+network.layer1.0.downsample.0.weight
+network.layer1.0.downsample.1.weight
+network.layer1.0.downsample.1.bias
+network.layer1.1.conv1.weight
+network.layer1.1.bn1.weight
+network.layer1.1.bn1.bias
+network.layer1.1.conv2.weight
+network.layer1.1.bn2.weight
+network.layer1.1.bn2.bias
+network.layer1.1.conv3.weight
+network.layer1.1.bn3.weight
+network.layer1.1.bn3.bias
+network.layer1.2.conv1.weight
+network.layer1.2.bn1.weight
+network.layer1.2.bn1.bias
+network.layer1.2.conv2.weight
+network.layer1.2.bn2.weight
+network.layer1.2.bn2.bias
+network.layer1.2.conv3.weight
+network.layer1.2.bn3.weight
+network.layer1.2.bn3.bias
+network.layer2.0.conv1.weight
+network.layer2.0.bn1.weight
+network.layer2.0.bn1.bias
+network.layer2.0.conv2.weight
+network.layer2.0.bn2.weight
+network.layer2.0.bn2.bias
+network.layer2.0.conv3.weight
+network.layer2.0.bn3.weight
+network.layer2.0.bn3.bias
+network.layer2.0.downsample.0.weight
+network.layer2.0.downsample.1.weight
+network.layer2.0.downsample.1.bias
+network.layer2.1.conv1.weight
+network.layer2.1.bn1.weight
+network.layer2.1.bn1.bias
+network.layer2.1.conv2.weight
+network.layer2.1.bn2.weight
+network.layer2.1.bn2.bias
+network.layer2.1.conv3.weight
+network.layer2.1.bn3.weight
+network.layer2.1.bn3.bias
+network.layer2.2.conv1.weight
+network.layer2.2.bn1.weight
+network.layer2.2.bn1.bias
+network.layer2.2.conv2.weight
+network.layer2.2.bn2.weight
+network.layer2.2.bn2.bias
+network.layer2.2.conv3.weight
+network.layer2.2.bn3.weight
+network.layer2.2.bn3.bias
+network.layer2.3.conv1.weight
+network.layer2.3.bn1.weight
+network.layer2.3.bn1.bias
+network.layer2.3.conv2.weight
+network.layer2.3.bn2.weight
+network.layer2.3.bn2.bias
+network.layer2.3.conv3.weight
+network.layer2.3.bn3.weight
+network.layer2.3.bn3.bias
+network.layer3.0.conv1.weight
+network.layer3.0.bn1.weight
+network.layer3.0.bn1.bias
+network.layer3.0.conv2.weight
+network.layer3.0.bn2.weight
+network.layer3.0.bn2.bias
+network.layer3.0.conv3.weight
+network.layer3.0.bn3.weight
+network.layer3.0.bn3.bias
+network.layer3.0.downsample.0.weight
+network.layer3.0.downsample.1.weight
+network.layer3.0.downsample.1.bias
+network.layer3.1.conv1.weight
+network.layer3.1.bn1.weight
+network.layer3.1.bn1.bias
+network.layer3.1.conv2.weight
+network.layer3.1.bn2.weight
+network.layer3.1.bn2.bias
+network.layer3.1.conv3.weight
+network.layer3.1.bn3.weight
+network.layer3.1.bn3.bias
+network.layer3.2.conv1.weight
+network.layer3.2.bn1.weight
+network.layer3.2.bn1.bias
+network.layer3.2.conv2.weight
+network.layer3.2.bn2.weight
+network.layer3.2.bn2.bias
+network.layer3.2.conv3.weight
+network.layer3.2.bn3.weight
+network.layer3.2.bn3.bias
+network.layer3.3.conv1.weight
+network.layer3.3.bn1.weight
+network.layer3.3.bn1.bias
+network.layer3.3.conv2.weight
+network.layer3.3.bn2.weight
+network.layer3.3.bn2.bias
+network.layer3.3.conv3.weight
+network.layer3.3.bn3.weight
+network.layer3.3.bn3.bias
+network.layer3.4.conv1.weight
+network.layer3.4.bn1.weight
+network.layer3.4.bn1.bias
+network.layer3.4.conv2.weight
+network.layer3.4.bn2.weight
+network.layer3.4.bn2.bias
+network.layer3.4.conv3.weight
+network.layer3.4.bn3.weight
+network.layer3.4.bn3.bias
+network.layer3.5.conv1.weight
+network.layer3.5.bn1.weight
+network.layer3.5.bn1.bias
+network.layer3.5.conv2.weight
+network.layer3.5.bn2.weight
+network.layer3.5.bn2.bias
+network.layer3.5.conv3.weight
+network.layer3.5.bn3.weight
+network.layer3.5.bn3.bias
+network.layer4.0.conv1.weight
+network.layer4.0.bn1.weight
+network.layer4.0.bn1.bias
+network.layer4.0.conv2.weight
+network.layer4.0.bn2.weight
+network.layer4.0.bn2.bias
+network.layer4.0.conv3.weight
+network.layer4.0.bn3.weight
+network.layer4.0.bn3.bias
+network.layer4.0.downsample.0.weight
+network.layer4.0.downsample.1.weight
+network.layer4.0.downsample.1.bias
+network.layer4.1.conv1.weight
+network.layer4.1.bn1.weight
+network.layer4.1.bn1.bias
+network.layer4.1.conv2.weight
+network.layer4.1.bn2.weight
+network.layer4.1.bn2.bias
+network.layer4.1.conv3.weight
+network.layer4.1.bn3.weight
+network.layer4.1.bn3.bias
+network.layer4.2.conv1.weight
+network.layer4.2.bn1.weight
+network.layer4.2.bn1.bias
+network.layer4.2.conv2.weight
+network.layer4.2.bn2.weight
+network.layer4.2.bn2.bias
+network.layer4.2.conv3.weight
+network.layer4.2.bn3.weight
+network.layer4.2.bn3.bias
+network.attnpool.positional_embedding
+network.attnpool.k_proj.weight
+network.attnpool.k_proj.bias
+network.attnpool.q_proj.weight
+network.attnpool.q_proj.bias
+network.attnpool.v_proj.weight
+network.attnpool.v_proj.bias
+network.attnpool.c_proj.weight
+network.attnpool.c_proj.bias
+network.conv1.weight
+network.bn1.weight
+network.bn1.bias
+network.conv2.weight
+network.bn2.weight
+network.bn2.bias
+network.conv3.weight
+network.bn3.weight
+network.bn3.bias
+network.layer1.0.conv1.weight
+network.layer1.0.bn1.weight
+network.layer1.0.bn1.bias
+network.layer1.0.conv2.weight
+network.layer1.0.bn2.weight
+network.layer1.0.bn2.bias
+network.layer1.0.conv3.weight
+network.layer1.0.bn3.weight
+network.layer1.0.bn3.bias
+network.layer1.0.downsample.0.weight
+network.layer1.0.downsample.1.weight
+network.layer1.0.downsample.1.bias
+network.layer1.1.conv1.weight
+network.layer1.1.bn1.weight
+network.layer1.1.bn1.bias
+network.layer1.1.conv2.weight
+network.layer1.1.bn2.weight
+network.layer1.1.bn2.bias
+network.layer1.1.conv3.weight
+network.layer1.1.bn3.weight
+network.layer1.1.bn3.bias
+network.layer1.2.conv1.weight
+network.layer1.2.bn1.weight
+network.layer1.2.bn1.bias
+network.layer1.2.conv2.weight
+network.layer1.2.bn2.weight
+network.layer1.2.bn2.bias
+network.layer1.2.conv3.weight
+network.layer1.2.bn3.weight
+network.layer1.2.bn3.bias
+network.layer2.0.conv1.weight
+network.layer2.0.bn1.weight
+network.layer2.0.bn1.bias
+network.layer2.0.conv2.weight
+network.layer2.0.bn2.weight
+network.layer2.0.bn2.bias
+network.layer2.0.conv3.weight
+network.layer2.0.bn3.weight
+network.layer2.0.bn3.bias
+network.layer2.0.downsample.0.weight
+network.layer2.0.downsample.1.weight
+network.layer2.0.downsample.1.bias
+network.layer2.1.conv1.weight
+network.layer2.1.bn1.weight
+network.layer2.1.bn1.bias
+network.layer2.1.conv2.weight
+network.layer2.1.bn2.weight
+network.layer2.1.bn2.bias
+network.layer2.1.conv3.weight
+network.layer2.1.bn3.weight
+network.layer2.1.bn3.bias
+network.layer2.2.conv1.weight
+network.layer2.2.bn1.weight
+network.layer2.2.bn1.bias
+network.layer2.2.conv2.weight
+network.layer2.2.bn2.weight
+network.layer2.2.bn2.bias
+network.layer2.2.conv3.weight
+network.layer2.2.bn3.weight
+network.layer2.2.bn3.bias
+network.layer2.3.conv1.weight
+network.layer2.3.bn1.weight
+network.layer2.3.bn1.bias
+network.layer2.3.conv2.weight
+network.layer2.3.bn2.weight
+network.layer2.3.bn2.bias
+network.layer2.3.conv3.weight
+network.layer2.3.bn3.weight
+network.layer2.3.bn3.bias
+network.layer3.0.conv1.weight
+network.layer3.0.bn1.weight
+network.layer3.0.bn1.bias
+network.layer3.0.conv2.weight
+network.layer3.0.bn2.weight
+network.layer3.0.bn2.bias
+network.layer3.0.conv3.weight
+network.layer3.0.bn3.weight
+network.layer3.0.bn3.bias
+network.layer3.0.downsample.0.weight
+network.layer3.0.downsample.1.weight
+network.layer3.0.downsample.1.bias
+network.layer3.1.conv1.weight
+network.layer3.1.bn1.weight
+network.layer3.1.bn1.bias
+network.layer3.1.conv2.weight
+network.layer3.1.bn2.weight
+network.layer3.1.bn2.bias
+network.layer3.1.conv3.weight
+network.layer3.1.bn3.weight
+network.layer3.1.bn3.bias
+network.layer3.2.conv1.weight
+network.layer3.2.bn1.weight
+network.layer3.2.bn1.bias
+network.layer3.2.conv2.weight
+network.layer3.2.bn2.weight
+network.layer3.2.bn2.bias
+network.layer3.2.conv3.weight
+network.layer3.2.bn3.weight
+network.layer3.2.bn3.bias
+network.layer3.3.conv1.weight
+network.layer3.3.bn1.weight
+network.layer3.3.bn1.bias
+network.layer3.3.conv2.weight
+network.layer3.3.bn2.weight
+network.layer3.3.bn2.bias
+network.layer3.3.conv3.weight
+network.layer3.3.bn3.weight
+network.layer3.3.bn3.bias
+network.layer3.4.conv1.weight
+network.layer3.4.bn1.weight
+network.layer3.4.bn1.bias
+network.layer3.4.conv2.weight
+network.layer3.4.bn2.weight
+network.layer3.4.bn2.bias
+network.layer3.4.conv3.weight
+network.layer3.4.bn3.weight
+network.layer3.4.bn3.bias
+network.layer3.5.conv1.weight
+network.layer3.5.bn1.weight
+network.layer3.5.bn1.bias
+network.layer3.5.conv2.weight
+network.layer3.5.bn2.weight
+network.layer3.5.bn2.bias
+network.layer3.5.conv3.weight
+network.layer3.5.bn3.weight
+network.layer3.5.bn3.bias
+network.layer4.0.conv1.weight
+network.layer4.0.bn1.weight
+network.layer4.0.bn1.bias
+network.layer4.0.conv2.weight
+network.layer4.0.bn2.weight
+network.layer4.0.bn2.bias
+network.layer4.0.conv3.weight
+network.layer4.0.bn3.weight
+network.layer4.0.bn3.bias
+network.layer4.0.downsample.0.weight
+network.layer4.0.downsample.1.weight
+network.layer4.0.downsample.1.bias
+network.layer4.1.conv1.weight
+network.layer4.1.bn1.weight
+network.layer4.1.bn1.bias
+network.layer4.1.conv2.weight
+network.layer4.1.bn2.weight
+network.layer4.1.bn2.bias
+network.layer4.1.conv3.weight
+network.layer4.1.bn3.weight
+network.layer4.1.bn3.bias
+network.layer4.2.conv1.weight
+network.layer4.2.bn1.weight
+network.layer4.2.bn1.bias
+network.layer4.2.conv2.weight
+network.layer4.2.bn2.weight
+network.layer4.2.bn2.bias
+network.layer4.2.conv3.weight
+network.layer4.2.bn3.weight
+network.layer4.2.bn3.bias
+network.attnpool.positional_embedding
+network.attnpool.k_proj.weight
+network.attnpool.k_proj.bias
+network.attnpool.q_proj.weight
+network.attnpool.q_proj.bias
+network.attnpool.v_proj.weight
+network.attnpool.v_proj.bias
+network.attnpool.c_proj.weight
+network.attnpool.c_proj.bias
+Total number of ones in the mask: 457074.0
+slurmstepd: error: *** JOB 23656 ON node9 CANCELLED AT 2024-10-16T18:53:38 ***

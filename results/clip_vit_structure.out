@@ -1,0 +1,236 @@
+[36mINFO[0m 09/26 11:38:01 | Command :: train_all.py exp_name --dataset PACS --data_dir /home/home_node7/wzb/data_need --algorithm ERM_select --model clip_vit-b16 --lr 3e-5 --resnet_dropout 0.3 --weight_decay 0 --batch_size 32 --set_count 5 --selection_rate 0.8 --recompute_count 0 --select_name conv
+Environment:
+	Python: 3.8.17
+	PyTorch: 2.0.1
+	Torchvision: 0.15.2
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.22.0
+	PIL: 9.4.0
+Args:
+	algorithm: ERM_select
+	checkpoint_freq: None
+	configs: []
+	data_dir: /home/home_node7/wzb/data_need
+	dataset: PACS
+	debug: False
+	deterministic: True
+	evalmode: fast
+	holdout_fraction: 0.2
+	model_save: None
+	name: exp_name
+	out_dir: train_output/PACS/240926_11-38-01_exp_name
+	out_root: train_output/PACS
+	prebuild_loader: False
+	seed: 0
+	show: False
+	steps: None
+	tb_freq: 10
+	test_envs: None
+	trial_seed: 0
+	unique_name: 240926_11-38-01_exp_name
+	work_dir: .
+HParams:
+	data_augmentation: True
+	val_augment: False
+	resnet18: False
+	[36mresnet_dropout: 0.3
+	[0mclass_balanced: False
+	optimizer: adam
+	freeze_bn: True
+	pretrained: True
+	[36mlr: 3e-05
+	[0m[36mbatch_size: 32
+	[0m[36mweight_decay: 0
+	[0m[36mset_count: 5
+	[0m[36mselection_rate: 0.8
+	[0mper: 0.5
+	[36mrecompute_count: 0
+	[0m[36mselect_name: conv
+	[0mswad: False
+	swad_kwargs: 
+	  n_converge: 3
+	  n_tolerance: 6
+	  tolerance_ratio: 0.3
+	test_batchsize: 128
+	[36mmodel: clip_vit-b16
+	[0mfeat_layers: stem_block
+	ld: 0.1
+	lr_mult: 10.0
+Dataset:
+	[PACS] #envs=4, #classes=7
+	env0: art_painting (#2048)
+	env1: cartoon (#2344)
+	env2: photo (#1670)
+	env3: sketch (#3929)
+
+[36mINFO[0m 09/26 11:38:01 | n_steps = 5001
+[36mINFO[0m 09/26 11:38:01 | checkpoint_freq = 200
+[36mINFO[0m 09/26 11:38:01 | n_steps is updated to 5001 => 5001 for checkpointing
+[36mINFO[0m 09/26 11:38:01 | Target test envs = [[0], [1], [2], [3]]
+[36mINFO[0m 09/26 11:38:01 | 
+[36mINFO[0m 09/26 11:38:01 | Testenv name escaping te_art_painting -> te_art_painting
+[36mINFO[0m 09/26 11:38:01 | Test envs = [0], name = te_art_painting
+[36mINFO[0m 09/26 11:38:01 | Batch sizes for each domain: [0, 32, 32, 32] (total=96)
+[36mINFO[0m 09/26 11:38:01 | steps-per-epoch for each domain: 58.62, 41.75, 98.25 -> min = 41.75
+Parameter name: 0.network.class_embedding, Shape: torch.Size([768])
+Parameter name: 0.network.positional_embedding, Shape: torch.Size([197, 768])
+Parameter name: 0.network.proj, Shape: torch.Size([768, 512])
+Parameter name: 0.network.conv1.weight, Shape: torch.Size([768, 3, 16, 16])
+Parameter name: 0.network.ln_pre.weight, Shape: torch.Size([768])
+Parameter name: 0.network.ln_pre.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.0.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.0.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.0.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.0.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.0.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.0.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.0.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.0.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.0.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.0.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.0.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.0.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.1.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.1.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.1.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.1.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.1.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.1.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.1.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.1.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.1.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.1.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.1.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.1.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.2.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.2.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.2.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.2.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.2.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.2.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.2.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.2.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.2.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.2.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.2.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.2.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.3.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.3.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.3.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.3.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.3.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.3.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.3.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.3.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.3.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.3.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.3.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.3.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.4.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.4.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.4.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.4.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.4.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.4.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.4.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.4.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.4.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.4.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.4.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.4.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.5.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.5.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.5.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.5.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.5.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.5.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.5.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.5.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.5.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.5.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.5.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.5.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.6.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.6.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.6.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.6.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.6.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.6.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.6.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.6.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.6.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.6.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.6.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.6.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.7.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.7.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.7.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.7.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.7.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.7.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.7.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.7.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.7.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.7.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.7.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.7.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.8.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.8.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.8.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.8.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.8.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.8.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.8.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.8.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.8.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.8.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.8.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.8.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.9.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.9.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.9.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.9.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.9.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.9.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.9.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.9.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.9.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.9.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.9.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.9.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.10.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.10.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.10.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.10.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.10.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.10.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.10.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.10.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.10.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.10.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.10.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.10.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.11.attn.in_proj_weight, Shape: torch.Size([2304, 768])
+Parameter name: 0.network.transformer.resblocks.11.attn.in_proj_bias, Shape: torch.Size([2304])
+Parameter name: 0.network.transformer.resblocks.11.attn.out_proj.weight, Shape: torch.Size([768, 768])
+Parameter name: 0.network.transformer.resblocks.11.attn.out_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.11.ln_1.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.11.ln_1.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.11.mlp.c_fc.weight, Shape: torch.Size([3072, 768])
+Parameter name: 0.network.transformer.resblocks.11.mlp.c_fc.bias, Shape: torch.Size([3072])
+Parameter name: 0.network.transformer.resblocks.11.mlp.c_proj.weight, Shape: torch.Size([768, 3072])
+Parameter name: 0.network.transformer.resblocks.11.mlp.c_proj.bias, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.11.ln_2.weight, Shape: torch.Size([768])
+Parameter name: 0.network.transformer.resblocks.11.ln_2.bias, Shape: torch.Size([768])
+Parameter name: 0.network.ln_post.weight, Shape: torch.Size([768])
+Parameter name: 0.network.ln_post.bias, Shape: torch.Size([768])
+Parameter name: 1.weight, Shape: torch.Size([7, 512])
+Parameter name: 1.bias, Shape: torch.Size([7])
+[36mINFO[0m 09/26 11:38:06 | # of params = 86196231
+[36mINFO[0m 09/26 11:38:53 | test_in     test_out    train_in    train_out   tr_outloss  env0_in     env0_out    env1_out    env2_out    env3_out    step        epoch       loss        step_time   eval_time  
+[36mINFO[0m 09/26 11:38:53 | 0.109213    0.088020    0.000000    0.138165    1.933464    0.109213    0.088020    0.121795    0.194611    0.098089    0           0.000000    0.000000    0.043913    46.923193  
+Compute importance for the current task...
+Number of trainable parameters: 1
+Final mask computed for each layer.
+slurmstepd: error: *** JOB 22257 ON node9 CANCELLED AT 2024-09-26T11:45:14 ***

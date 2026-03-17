@@ -1,0 +1,252 @@
+[36mINFO[0m 11/21 11:54:17 | Command :: train_all.py exp_name --dataset PACS --data_dir /home/home_node7/wzb/data_need --algorithm ERM_select --model resnet50 --lr 3e-5 --resnet_dropout 0.0 --weight_decay 0 --batch_size 32 --freeze_bn False --set_count 10 --selection_rate 0.8 --recompute_count 0 --select_name conv3 conv2 conv1 --select SPU_step --way var
+Environment:
+	Python: 3.8.17
+	PyTorch: 2.0.1
+	Torchvision: 0.15.2
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.22.0
+	PIL: 9.4.0
+Args:
+	algorithm: ERM_select
+	checkpoint_freq: None
+	configs: []
+	data_dir: /home/home_node7/wzb/data_need
+	dataset: PACS
+	debug: False
+	deterministic: True
+	evalmode: fast
+	holdout_fraction: 0.2
+	model_save: None
+	name: exp_name
+	out_dir: train_output/PACS/241121_11-54-16_exp_name
+	out_root: train_output/PACS
+	prebuild_loader: False
+	seed: 0
+	show: False
+	steps: None
+	tb_freq: 10
+	test_envs: None
+	trial_seed: 0
+	unique_name: 241121_11-54-16_exp_name
+	work_dir: .
+HParams:
+	data_augmentation: True
+	val_augment: False
+	resnet18: False
+	[36mresnet_dropout: 0.0
+	[0mclass_balanced: False
+	optimizer: adam
+	[36mfreeze_bn: False
+	[0mpretrained: True
+	[36mlr: 3e-05
+	[0m[36mbatch_size: 32
+	[0m[36mweight_decay: 0
+	[0m[36mset_count: 10
+	[0m[36mselection_rate: 0.8
+	[0mper: 0
+	[36mrecompute_count: 0
+	[0m[36mselect_name: conv3 conv2 conv1
+	[0mk: 0
+	[36mselect: SPU_step
+	[0mswa_start: 0
+	swa_freq: 0
+	[36mway: var
+	[0mquantile_threshold: 0.75
+	swad: False
+	swad_kwargs: 
+	  n_converge: 3
+	  n_tolerance: 6
+	  tolerance_ratio: 0.3
+	test_batchsize: 128
+	[36mmodel: resnet50
+	[0mfeat_layers: stem_block
+	ld: 0.1
+	lr_mult: 10.0
+Dataset:
+	[PACS] #envs=4, #classes=7
+	env0: art_painting (#2048)
+	env1: cartoon (#2344)
+	env2: photo (#1670)
+	env3: sketch (#3929)
+
+[36mINFO[0m 11/21 11:54:17 | n_steps = 5001
+[36mINFO[0m 11/21 11:54:17 | checkpoint_freq = 200
+[36mINFO[0m 11/21 11:54:17 | n_steps is updated to 5001 => 5001 for checkpointing
+[36mINFO[0m 11/21 11:54:17 | Target test envs = [[0], [1], [2], [3]]
+[36mINFO[0m 11/21 11:54:17 | 
+[36mINFO[0m 11/21 11:54:17 | Testenv name escaping te_art_painting -> te_art_painting
+[36mINFO[0m 11/21 11:54:17 | Test envs = [0], name = te_art_painting
+[36mINFO[0m 11/21 11:54:17 | Batch sizes for each domain: [0, 32, 32, 32] (total=96)
+[36mINFO[0m 11/21 11:54:17 | steps-per-epoch for each domain: 58.62, 41.75, 98.25 -> min = 41.75
+/home/home_node7/wzb/miniconda3/envs/py_38/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/home_node7/wzb/miniconda3/envs/py_38/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+[36mINFO[0m 11/21 11:54:19 | # of params = 23522375 10994314
+[36mINFO[0m 11/21 11:54:32 | test_in     test_out    train_in    train_out   tr_outloss  env0_in     env0_out    env1_out    env2_out    env3_out    step        epoch       loss        step_time   eval_time  
+[36mINFO[0m 11/21 11:54:32 | 0.157413    0.173594    0.000000    0.096869    2.012479    0.157413    0.173594    0.153846    0.062874    0.073885    0           0.000000    0.000000    0.042785    12.152696  
+Compute importance for the current task...
+network.conv1.weight
+network.bn1.weight
+network.bn1.bias
+network.layer1.0.conv1.weight
+network.layer1.0.bn1.weight
+network.layer1.0.bn1.bias
+network.layer1.0.conv2.weight
+network.layer1.0.bn2.weight
+network.layer1.0.bn2.bias
+network.layer1.0.conv3.weight
+network.layer1.0.bn3.weight
+network.layer1.0.bn3.bias
+network.layer1.0.downsample.0.weight
+network.layer1.0.downsample.1.weight
+network.layer1.0.downsample.1.bias
+network.layer1.1.conv1.weight
+network.layer1.1.bn1.weight
+network.layer1.1.bn1.bias
+network.layer1.1.conv2.weight
+network.layer1.1.bn2.weight
+network.layer1.1.bn2.bias
+network.layer1.1.conv3.weight
+network.layer1.1.bn3.weight
+network.layer1.1.bn3.bias
+network.layer1.2.conv1.weight
+network.layer1.2.bn1.weight
+network.layer1.2.bn1.bias
+network.layer1.2.conv2.weight
+network.layer1.2.bn2.weight
+network.layer1.2.bn2.bias
+network.layer1.2.conv3.weight
+network.layer1.2.bn3.weight
+network.layer1.2.bn3.bias
+network.layer2.0.conv1.weight
+network.layer2.0.bn1.weight
+network.layer2.0.bn1.bias
+network.layer2.0.conv2.weight
+network.layer2.0.bn2.weight
+network.layer2.0.bn2.bias
+network.layer2.0.conv3.weight
+network.layer2.0.bn3.weight
+network.layer2.0.bn3.bias
+network.layer2.0.downsample.0.weight
+network.layer2.0.downsample.1.weight
+network.layer2.0.downsample.1.bias
+network.layer2.1.conv1.weight
+network.layer2.1.bn1.weight
+network.layer2.1.bn1.bias
+network.layer2.1.conv2.weight
+network.layer2.1.bn2.weight
+network.layer2.1.bn2.bias
+network.layer2.1.conv3.weight
+network.layer2.1.bn3.weight
+network.layer2.1.bn3.bias
+network.layer2.2.conv1.weight
+network.layer2.2.bn1.weight
+network.layer2.2.bn1.bias
+network.layer2.2.conv2.weight
+network.layer2.2.bn2.weight
+network.layer2.2.bn2.bias
+network.layer2.2.conv3.weight
+network.layer2.2.bn3.weight
+network.layer2.2.bn3.bias
+network.layer2.3.conv1.weight
+network.layer2.3.bn1.weight
+network.layer2.3.bn1.bias
+network.layer2.3.conv2.weight
+network.layer2.3.bn2.weight
+network.layer2.3.bn2.bias
+network.layer2.3.conv3.weight
+network.layer2.3.bn3.weight
+network.layer2.3.bn3.bias
+network.layer3.0.conv1.weight
+network.layer3.0.bn1.weight
+network.layer3.0.bn1.bias
+network.layer3.0.conv2.weight
+network.layer3.0.bn2.weight
+network.layer3.0.bn2.bias
+network.layer3.0.conv3.weight
+network.layer3.0.bn3.weight
+network.layer3.0.bn3.bias
+network.layer3.0.downsample.0.weight
+network.layer3.0.downsample.1.weight
+network.layer3.0.downsample.1.bias
+network.layer3.1.conv1.weight
+network.layer3.1.bn1.weight
+network.layer3.1.bn1.bias
+network.layer3.1.conv2.weight
+network.layer3.1.bn2.weight
+network.layer3.1.bn2.bias
+network.layer3.1.conv3.weight
+network.layer3.1.bn3.weight
+network.layer3.1.bn3.bias
+network.layer3.2.conv1.weight
+network.layer3.2.bn1.weight
+network.layer3.2.bn1.bias
+network.layer3.2.conv2.weight
+network.layer3.2.bn2.weight
+network.layer3.2.bn2.bias
+network.layer3.2.conv3.weight
+network.layer3.2.bn3.weight
+network.layer3.2.bn3.bias
+network.layer3.3.conv1.weight
+network.layer3.3.bn1.weight
+network.layer3.3.bn1.bias
+network.layer3.3.conv2.weight
+network.layer3.3.bn2.weight
+network.layer3.3.bn2.bias
+network.layer3.3.conv3.weight
+network.layer3.3.bn3.weight
+network.layer3.3.bn3.bias
+network.layer3.4.conv1.weight
+network.layer3.4.bn1.weight
+network.layer3.4.bn1.bias
+network.layer3.4.conv2.weight
+network.layer3.4.bn2.weight
+network.layer3.4.bn2.bias
+network.layer3.4.conv3.weight
+network.layer3.4.bn3.weight
+network.layer3.4.bn3.bias
+network.layer3.5.conv1.weight
+network.layer3.5.bn1.weight
+network.layer3.5.bn1.bias
+network.layer3.5.conv2.weight
+network.layer3.5.bn2.weight
+network.layer3.5.bn2.bias
+network.layer3.5.conv3.weight
+network.layer3.5.bn3.weight
+network.layer3.5.bn3.bias
+network.layer4.0.conv1.weight
+network.layer4.0.bn1.weight
+network.layer4.0.bn1.bias
+network.layer4.0.conv2.weight
+network.layer4.0.bn2.weight
+network.layer4.0.bn2.bias
+network.layer4.0.conv3.weight
+network.layer4.0.bn3.weight
+network.layer4.0.bn3.bias
+network.layer4.0.downsample.0.weight
+network.layer4.0.downsample.1.weight
+network.layer4.0.downsample.1.bias
+network.layer4.1.conv1.weight
+network.layer4.1.bn1.weight
+network.layer4.1.bn1.bias
+network.layer4.1.conv2.weight
+network.layer4.1.bn2.weight
+network.layer4.1.bn2.bias
+network.layer4.1.conv3.weight
+network.layer4.1.bn3.weight
+network.layer4.1.bn3.bias
+network.layer4.2.conv1.weight
+network.layer4.2.bn1.weight
+network.layer4.2.bn1.bias
+network.layer4.2.conv2.weight
+network.layer4.2.bn2.weight
+network.layer4.2.bn2.bias
+network.layer4.2.conv3.weight
+network.layer4.2.bn3.weight
+network.layer4.2.bn3.bias
+Total number of ones in the mask: 10994314.0
+finish compute score
+Total number of ones in the mask: 7812486.0
+slurmstepd: error: *** JOB 28209 ON node10 CANCELLED AT 2024-11-21T11:55:21 ***

@@ -1,7 +1,9 @@
 # JPS: Joint Parameter Selection (TMM2026)
 
 Official PyTorch implementation of [Preserving Domain Generalization in Fine-Tuning via Joint Parameter Selection](accepted but not published yet)
+
 Bin Pan, Shiyu Shen, Zongbin Wang, Zhenwei Shi and Xia Xu.
+
 [paper](open access after publication)
 
 ![Flowchart](./assets/flowchart.png)
